@@ -327,4 +327,8 @@ router.get('/all', productCtrl.getProducts);
  */
 router.post('/like', productCtrl.likeProduct);
 
+router.get('/getByCategory', productCtrl.getProductByCategory);
+
+
+
 export default router; 

@@ -126,6 +126,22 @@ export const getProductById = async (req: Request, res: Response) => {
   res.json({ ok: true, producto: product });
 };
 
+export const getProductByCategory = async (req: Request, res: Response) => {
+
+  try {
+    const { idCategory } = req.query;
+    const products = await Product.find({category: idCategory});
+    res.json({ ok: true, products });
+    
+  } catch (error) {
+    res.status(500).json({
+      ok: false,
+      message: 'An error occurred while getting the product'
+    });
+  }
+};
+
+
 export const getProducts = async (req: Request, res: Response) => {
   const { page } = req.query;
   const options = {
